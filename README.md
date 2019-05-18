@@ -4,8 +4,18 @@ It is a simple Python program to scrap phone numbers and email from text.
 
 This program's regex is prepared to search for polish phone numbers.
 
+
 ## Usage example
 
+You need to have ```pyperclip``` module installed.
+
+In case you don't have, run:
+```sh
+pip install pyperclip
+```
+
+
+### Using Contact Scraper:
 1. Highlight the text you want to have searched for phone numbers and email addresses,
 2. copy highlighted text (e.g. CTRL + C),
 3. run ```contact_scraper_pl.py```,
