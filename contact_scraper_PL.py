@@ -12,14 +12,17 @@ def extract_phones(text):
     :return: list -> all phone numbers extracted from string
     """
     # Regex pattern for phone numbers (PL numbers)
-    phone_regex = re.compile(r'''
+    phone_regex = re.compile(
+        r"""
     # +48 555 000 000, 555-000-000, (+48) 555-000-000, (+48) 555 000 000, 048 555-000-000, 048555000555,
     # +48555000555, 555000555
     (
     ( \+\d{2} | \(\+\d{2}\) )?      # directional (optional)
     ((\s|-)?\d{3}){3}               # 9 digits with separators
     )
-    ''', re.VERBOSE)
+    """,
+        re.VERBOSE,
+    )
 
     # Extract phone numbers from given text
     extracted_phone = phone_regex.findall(text)
@@ -38,13 +41,16 @@ def extract_emails(text):
     :return: list -> email addresses
     """
     # Regex pattern for email addresses
-    email_regex = re.compile(r'''
+    email_regex = re.compile(
+        r"""
     # some.+_thing@some.+_thing.com
     
     [a-zA-Z0-9_.+]+         # name part
     @                       # @ symbol
     [a-zA-Z0-9_.+]+         # domain name part
-    ''', re.VERBOSE)
+    """,
+        re.VERBOSE,
+    )
 
     # Extract email addresses from given text
     extracted_emails = email_regex.findall(text)
@@ -59,7 +65,7 @@ def to_string(phones, emails):
     :param emails: list -> email addresses
     :return: string -> all phone numbers and email addresses
     """
-    results = '\n'.join(phones) + '\n' + '\n'.join(emails)
+    results = "\n".join(phones) + "\n" + "\n".join(emails)
 
     return results
 
